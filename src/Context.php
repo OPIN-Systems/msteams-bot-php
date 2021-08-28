@@ -128,9 +128,9 @@ class Context
     /**
      * @return string
      */
-    public function getFromName(): string
+    public function getFromName(): ?string
     {
-        return $this->data['from']['name'] ?? '';
+        return $this->data['from']['name'] ?? null;
     }
 
     /**
