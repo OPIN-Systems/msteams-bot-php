@@ -130,7 +130,7 @@ class Context
      */
     public function getFromName(): string
     {
-        return $this->data['from']['name'];
+        return $this->data['from']['name'] ?? '';
     }
 
     /**
