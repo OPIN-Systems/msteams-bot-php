@@ -117,3 +117,4 @@ And use it
     // set token
     $bot->token->set($token);
 ```
+edit from michael
