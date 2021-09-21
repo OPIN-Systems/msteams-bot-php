@@ -29,7 +29,7 @@ class Bot
     /**
      * @var Context
      */
-    public Context $context;
+    public $context;
     /**
      * @var Token
      */
@@ -46,7 +46,7 @@ class Bot
      * @throws TeamsBotException
      * @throws TeamsBotTokenException
      */
-    public function __construct(string $bot_id, string $bot_password, ?Context $context = null)
+    public function __construct(string $bot_id, string $bot_password, $context = null)
     {
         if (empty($bot_id)) {
             throw new TeamsBotException('Bot ID not defined!');
@@ -84,15 +84,21 @@ class Bot
     }
 
 
+    public function createProActiveMessage(): ProActiveMessage
+    {
+        return new ProActiveMessage();
+    }
+
+
     /**
      * Send a new Activity
      *
-     * @param Message $message
+     * @param Message|ProActiveMessage $message
      * @return array
      * @throws TeamsBotException
      * @throws TeamsBotTokenException
      */
-    public function postMessage(Message $message): array
+    public function postMessage($message): array
     {
         $data = [
             'json' => $message->getData(),
